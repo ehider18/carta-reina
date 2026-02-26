@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Para mi Reina Eterna</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Great+Vibes&family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="castle-background"></div>
+
+    <!-- 👑🌻 NUEVO: elementos flotantes -->
+    <div class="floating-elements" id="floatingElements">
+        <span class="crown">👑</span>
+        <span class="sunflower">🌻</span>
+        <span class="crown slow">👑</span>
+        <span class="sunflower slow">🌻</span>
+        <span class="crown">👑</span>
+        <span class="sunflower">🌻</span>
+        <span class="crown slow">👑</span>
+        <span class="sunflower">🌻</span>
+    </div>
+
+    <div id="chest-screen">
+        <div class="chest-wrapper" onclick="abrirCofre()">
+            <div class="lid">
+                <div class="gold-ornament"></div>
+            </div>
+            <div class="chest-body">
+                <div class="lock-plate">
+                    <div class="keyhole"></div>
+                </div>
+                <span class="label">ÁBREME</span>
+            </div>
+        </div>
+        <p class="royal-text">Un tesoro aguarda por su majestad...</p>
+    </div>
+
+    <div id="main-content" class="hidden">
+        <div class="scroll-container">
+            <div class="scroll-paper">
+                <div class="royal-header">
+                    <span class="crown-main">👑</span>
+                    <h1 class="victorian-title">Feliz Natalicio, Mi Reina</h1>
+                </div>
+                
+                <div class="poem-body">
+                    <p>Mi Niña Hermosa, mi corazón y mi cielo entero. Hoy los astros se detienen para contemplar la luz de tu existencia, pues cumples un año más de iluminar este mundo con tu presencia divina.</p>
+                    <p>Eres la mujer más HERMOSA de este mundo y del universo; tu belleza nunca dejará de impactarme. Gracias por brindarme ese amor tan especial y maravilloso. Hoy quiero decirte lo mucho que te amo: eres lo más valioso del mundo, mi tesoro sagrado el cual siempre cuidaré.</p>
+                    <p>Eres inteligente, brillante, alegre, creativa y comprensiva. Sé que la universidad conlleva un gran desgaste, pero sé que lo vas a lograr porque eres capaz de todo lo que te propongas.</p>
+                    <p>Eres mi sol, mi girasol radiante, la luna que calma mis noches y las estrellas que deslumbran mi ser. ¡Te amo desde el fondo de mi alma!</p>
+                </div>
+
+                <div class="portrait-gallery">
+                    <div class="oval-frame"><img src="foto1.jpg"></div>
+                    <div class="oval-frame"><img src="foto2.jpg"></div>
+                    <div class="oval-frame"><img src="foto3.jpg"></div>
+                    <div class="oval-frame"><img src="foto4.jpg"></div>
+                    <div class="oval-frame"><img src="foto5.jpg"></div>
+                </div>
+
+                <p class="signature">Tu eterno enamorado</p>
+                <div id="countdown"></div>
+            </div>
+        </div>
+    </div>
+
+    <audio id="musica" loop>
+        <source src="musica.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>

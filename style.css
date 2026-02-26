@@ -1,0 +1,178 @@
+:root {
+    --gold: #d4af37;
+    --royal-red: #a50016;
+    --deep-burgundy: #4a0000;
+    --paper: #fcf5e5;
+}
+
+body {
+    margin: 0; padding: 0;
+    min-height: 100vh;
+    background-color: var(--deep-burgundy);
+    font-family: 'Playfair Display', serif;
+    overflow-x: hidden;
+}
+
+/* Fondo Rojo Palacio con textura sutil */
+.castle-background {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: radial-gradient(circle, var(--royal-red) 0%, var(--deep-burgundy) 100%);
+    z-index: -1;
+}
+.castle-background::after {
+    content: "";
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url('https://www.transparenttextures.com/patterns/damask.png');
+    opacity: 0.15;
+    pointer-events: none;
+}
+
+/* Control de visibilidad */
+.hidden { display: none !important; }
+
+/* PANTALLA COFRE: Centrado absoluto */
+#chest-screen {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s;
+    z-index: 100;
+}
+
+.chest-wrapper { position: relative; width: 200px; height: 160px; cursor: pointer; }
+.chest-body {
+    width: 100%; height: 100px; background: #3d2416;
+    border: 3px solid #2a1b10; border-radius: 0 0 10px 10px;
+    position: absolute; bottom: 0; box-shadow: inset 0 0 20px black;
+}
+.lid {
+    width: 100%; height: 75px; background: #5d4037;
+    border: 3px solid #2a1b10; border-radius: 60px 60px 0 0;
+    position: absolute; top: 0; z-index: 2;
+    transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.lock-plate {
+    position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
+    width: 35px; height: 45px; background: var(--gold); border-radius: 3px;
+}
+.keyhole { width: 8px; height: 12px; background: #1a0f0f; margin: 15px auto; border-radius: 50% 50% 0 0; }
+.label { position: absolute; bottom: 15px; width: 100%; text-align: center; color: var(--gold); font-family: 'Cinzel Decorative'; font-size: 10px; }
+.royal-text { color: var(--gold); margin-top: 20px; font-style: italic; }
+
+/* PANTALLA CARTA: Centrado horizontal */
+#main-content {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+    position: relative;
+}
+
+.scroll-container {
+    width: 90%;
+    max-width: 500px;
+    animation: fadeIn 1s ease-out;
+}
+
+.scroll-paper {
+    background: var(--paper);
+    padding: 40px 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 50px rgba(0,0,0,0.8);
+    border-left: 15px solid #e5dcc3;
+    border-right: 15px solid #e5dcc3;
+    text-align: center;
+}
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+.victorian-title { font-family: 'Cinzel Decorative'; color: #800020; font-size: 1.5rem; margin: 15px 0; }
+.poem-body { font-family: 'Pinyon Script', cursive; font-size: 1.7rem; color: #2a1b10; line-height: 1.4; }
+
+/* Marcos Ovalados */
+.portrait-gallery { display: flex; flex-direction: column; align-items: center; gap: 30px; margin-top: 30px; }
+.oval-frame {
+    width: 250px; height: 320px;
+    border: 10px solid var(--gold);
+    border-radius: 50% / 40%;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+.oval-frame img { width: 100%; height: 100%; object-fit: cover; }
+
+.signature { font-family: 'Great Vibes', cursive; font-size: 3rem; color: var(--royal-red); margin-top: 30px; }
+#countdown { color: #5d4037; font-size: 0.9rem; margin-top: 20px; border-top: 1px solid var(--gold); padding-top: 15px; }
+
+/* ============================= */
+/* 👑🌻 ELEMENTOS FLOTANTES */
+/* ============================= */
+
+.floating-elements {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.floating-elements span {
+    position: absolute;
+    bottom: -60px;
+    font-size: 28px;
+    opacity: 0.07;
+    animation: floatUp linear infinite;
+    animation-duration: 22s;
+    filter: drop-shadow(0 0 6px rgba(212,175,55,0.5));
+}
+
+.floating-elements .slow {
+    animation-duration: 35s;
+}
+
+.floating-elements span:nth-child(1){ left: 5%; }
+.floating-elements span:nth-child(2){ left: 18%; }
+.floating-elements span:nth-child(3){ left: 30%; }
+.floating-elements span:nth-child(4){ left: 42%; }
+.floating-elements span:nth-child(5){ left: 60%; }
+.floating-elements span:nth-child(6){ left: 72%; }
+.floating-elements span:nth-child(7){ left: 85%; }
+.floating-elements span:nth-child(8){ left: 95%; }
+
+@keyframes floatUp {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(-120vh) rotate(360deg); }
+}
+
+/* Intensidad al abrir */
+.floating-elements.active span {
+    opacity: 0.15;
+    animation-duration: 12s;
+    filter: drop-shadow(0 0 12px rgba(212,175,55,0.9));
+}
+
+/* ============================= */
+/* 🌸 PÉTALOS DORADOS */
+/* ============================= */
+
+.petalo {
+    position: fixed;
+    top: -20px;
+    pointer-events: none;
+    color: #d4af37;
+    text-shadow: 0 0 8px rgba(212,175,55,0.8);
+    animation: caerPetalo linear forwards;
+    z-index: 1;
+}
+
+@keyframes caerPetalo {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
